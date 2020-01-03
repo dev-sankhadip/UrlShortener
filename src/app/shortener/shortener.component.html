@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <label for="basic-url" class="mt-2">Your vanity URL</label>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+          <input type="text" formControlName="url" class="form-control" placeholder="Enter your url here">
+          <button class="btn btn-sm btn-primary mt-2" type="submit">Shorten</button>
+      </form>
+    </div>
+    <div class="col-12">
+      
+    </div>
+  </div>
+</div>
