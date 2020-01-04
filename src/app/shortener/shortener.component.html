@@ -7,8 +7,9 @@
           <button class="btn btn-sm btn-primary mt-2" type="submit">Shorten</button>
       </form>
     </div>
-    <div class="col-12">
-      
+    <div class="col-12" *ngIf="newURL">
+      <p class="mt-2" id="newurl">{{ newURL }}</p>
+      <button class="btn btn-sm btn-primary" (click)="copy()">copy</button>
     </div>
   </div>
 </div>

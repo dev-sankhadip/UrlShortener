@@ -15,20 +15,31 @@ export class ShortenerComponent implements OnInit {
     url:new FormControl('')
   })
 
+  public newURL=''
+
   submit()
   {
     const url=this.form.value.url;
     this.urlService.shortenURL(url)
     .subscribe((res)=>{
       console.log(res)
+      this.newURL=res['newurl']
     },(err)=>{
-
+      console.log(err)
     })
   }
 
-  get()
+  copy()
   {
-    this.urlService.getData()
+    const text=document.getElementById("newurl").innerHTML;
+    let input=document.createElement("input");
+    input.setAttribute("hidden","true");
+    document.body.appendChild(input);
+    input.value=text;
+    input.select();
+    input.setSelectionRange(0, 99999)
+    document.execCommand("copy");
+    alert("url copied");
   }
 
   ngOnInit() {
